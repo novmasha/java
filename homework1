@@ -1,0 +1,54 @@
+package com.example.myfirstapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+   
+    private int cash = 312;
+
+    private int palto = 70;
+    private int paltodisc = 77;
+
+    private int shlapa = 25;
+    private int shlapadisc = 37;
+
+    private int kostum = 53;
+    private int kostumdisc = 44;
+
+    private int sorochka = 19;
+
+    private int tufli = 41;
+    private int tuflidisc = 32;
+
+    public boolean canbuygarderob() {
+        float result;
+        result = (palto * paltodisc + shlapa * shlapadisc +
+                kostum * kostumdisc + sorochka +
+                tufli * tuflidisc) / 100;
+        result = cash - result;
+
+        if (result < 0) return false;
+        else return true;
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        TextView txt = findViewById(R.id.txt);
+
+        boolean flag = canbuygarderob();
+        if (flag) {
+            txt.setText("Мы можем купить деловой гардероб");
+        } else {
+            txt.setText("Попроси больше денег");
+        }
+
+    }
+}
