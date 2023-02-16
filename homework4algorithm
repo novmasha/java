@@ -1,0 +1,27 @@
+package com.example.myfirstapplication;
+
+public class Algorithm {
+
+
+    public Algorithm() {}
+
+    public static long calculateMass(String input) {
+        if (input.contains(",")) {
+            String correct = input.replace(",", ".");
+
+            return calculateMass0(correct);
+
+        } else {
+
+            return calculateMass0(input);
+        }
+    }
+
+    private static long calculateMass0(String correctedInput) {
+        double inputDouble = Double.parseDouble(correctedInput);
+
+        return (long) inputDouble * 100;
+    }
+
+
+}
